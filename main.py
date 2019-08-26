@@ -16,10 +16,7 @@ input_images = tf.placeholder(tf.float32, shape=(None, 32, 32, 3)) # bfloat16
 input_labels = tf.placeholder(tf.float32, shape=(None, 10)) # one-hot encoding
 
 
-# print(train_images.shape)
-# print(np.array(train_labels).shape)
+# ResNet 是 add  , DenseNet 是 concatenate
+W_conv1 = layers.weight_variable([7, 7, 3, 16])
+b_conv1 = layers.bias_variable([16])
 
-# print("==============================")
-
-# print(test_images.shape)
-# print(np.array(test_labels).shape)

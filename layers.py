@@ -21,4 +21,7 @@ def max_pool(x, ksize_num,  stride_num):
 # averagepooling
 def average_pool(x, ksize_num, stride_num):
     return tf.nn.avg_pool(x, ksize=[1, ksize_num, ksize_num, 1], strides=[1, stride_num, stride_num, 1], padding="SAME")
+
+# DenseBlock
+def DenseBlock():
     
