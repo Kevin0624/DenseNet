@@ -25,3 +25,4 @@ def average_pool(x, ksize_num, stride_num):
 # DenseBlock
 def DenseBlock():
     
+# batchnormalization
