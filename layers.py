@@ -69,7 +69,51 @@ class DenseNet():
         return tf.keras.layers.BatchNormalization(x, training = training)
 
     # Dropout
-    def dropout():
+    def dropout(self, 
+                x,  
+                training):
+
+        return tf.layers.dropout(x, rate = self.dropout_rate, training = training)
+        
+    # Composite function
+    def composite_function(self, x, W, stride_num, training ):
+        """Function from paper H_l that performs:
+        - batch normalization
+        - ReLU nonlinearity
+        - convolution with required kernel
+        - dropout, if required
+        """
+        # batch normalization 
+        output = self.batch_norm(x, training)
+
+        # Relu
+        output = tf.nn.relu(output)
+
+        # Conv2d
+        output = self.conv2d(output, W, stride_num)
+
+        # dropout
+        output = self.dropout(output, training)
+
+        return output
+    
+    # bottleneck
+    def bottleneck(self, x, W, stride_num, training ):
+
+        #batch normalization
+        output = self.batch_norm(x, training)
+
+        #Relu
+        output = tf.nn.relu(output)
+
+        #Conv2d
+        output = self.conv2d(output, W, stride_num)
+
+        #dropout
+        output = self.dropout(output, training)
+
+        return output
+
 
 
 
