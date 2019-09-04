@@ -114,7 +114,19 @@ class DenseNet():
 
         return output
 
-    #
+    # add layer
+    def addlayer(self, input_, W, stride_num, training):
+
+        output = input_
+        output = self.composite_function(output, W, stride_num, training)
+        output = tf.concat(axis = 3, value = (input_, output))
+
+        return output
+
+    # transition layer
+    def transition_layer(self, input_, W, stride_num, training):
+
+        
 
 
 
